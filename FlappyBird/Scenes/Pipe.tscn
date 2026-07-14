@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b1kgy2ulgpcyq"]
+
+[ext_resource type="Texture2D" uid="uid://b34j5l8pk1jol" path="res://Assets/pipe.png" id="1_8f5oa"]
+[ext_resource type="Script" uid="uid://ioebiclumxd7" path="res://Scripts/pipe.gd" id="1_nq301"]
+
+[node name="Pipe" type="Node2D" unique_id=319315535]
+script = ExtResource("1_nq301")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=735546128]
+texture = ExtResource("1_8f5oa")
+centered = false
