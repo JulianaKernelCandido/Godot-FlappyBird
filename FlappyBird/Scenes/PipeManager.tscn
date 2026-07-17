@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://y82tah1crm3r"]
+
+[ext_resource type="Script" uid="uid://bnmsqkw1ycuog" path="res://Scripts/pipe_manager.gd" id="1_j5uln"]
+
+[node name="PipeManager" type="Node2D" unique_id=1144236250]
+script = ExtResource("1_j5uln")

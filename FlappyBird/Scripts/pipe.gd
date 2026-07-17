@@ -5,7 +5,9 @@ var pipe_sprite = null
 var pipe_width = null
 var pipe_height = null
 var inverted = false
-var horizontal_velocity = 1
+var space = 52
+var displacement = 0
+var horizontal_velocity = 1.8
 var viewport_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var viewport_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 
@@ -18,13 +20,17 @@ func _ready():
 	pipe_width = pipe_sprite.texture.get_width()
 	pipe_height = pipe_sprite.texture.get_height()
 
-	# Setting my location
+	# Setting initial horizontal position
 	pos.x = viewport_width + pipe_width
+
+	# Setting vertical position by the inverted condition variable
 	if(!inverted):
-		pos.y = viewport_height - pipe_height
+		pos.y = displacement + (viewport_height - pipe_height) + space
 	else:
-		pos.y = 0
+		pos.y = displacement - space
 		pipe_sprite.flip_v = true
+
+	position = pos
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

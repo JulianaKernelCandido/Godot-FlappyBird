@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dn7ri5h1uu4ta"]
 
-[ext_resource type="Script" uid="uid://6ul54hrvjfgk" path="res://Scripts/Player.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://6ul54hrvjfgk" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://dpq33e3g2j3u4" path="res://Assets/player.png" id="1_rpqav"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyqiw"]
@@ -32,10 +32,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfxxf"]
+size = Vector2(17, 12)
+
 [node name="Player" type="Node2D" unique_id=1364204128]
 script = ExtResource("1_kyqiw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=512447588]
 sprite_frames = SubResource("SpriteFrames_bfxxf")
 animation = &"fly"
-frame_progress = 0.0470904
+frame_progress = 0.121957
+
+[node name="Area2D" type="Area2D" parent="." unique_id=680028131 groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1672492852]
+shape = SubResource("RectangleShape2D_bfxxf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

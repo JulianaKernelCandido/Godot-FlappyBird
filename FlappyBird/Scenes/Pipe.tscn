@@ -3,9 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://b34j5l8pk1jol" path="res://Assets/pipe.png" id="1_8f5oa"]
 [ext_resource type="Script" uid="uid://ioebiclumxd7" path="res://Scripts/pipe.gd" id="1_nq301"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfxxf"]
+size = Vector2(26, 160)
+
 [node name="Pipe" type="Node2D" unique_id=319315535]
 script = ExtResource("1_nq301")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=735546128]
 texture = ExtResource("1_8f5oa")
 centered = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=82565023 groups=["pipe"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2144162784]
+position = Vector2(13, 80)
+shape = SubResource("RectangleShape2D_bfxxf")

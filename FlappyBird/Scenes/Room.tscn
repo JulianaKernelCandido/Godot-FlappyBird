@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://bye74iyv20hc4"]
 
-[ext_resource type="PackedScene" uid="uid://dn7ri5h1uu4ta" path="res://Scenes/Player.tscn" id="1_5hpqs"]
-[ext_resource type="PackedScene" uid="uid://b1kgy2ulgpcyq" path="res://Scenes/Pipe.tscn" id="2_nn86p"]
+[ext_resource type="Script" uid="uid://bf18od14thso5" path="res://Scripts/room.gd" id="1_uj218"]
 
 [node name="Room" type="Node2D" unique_id=1106615641]
-
-[node name="Player" parent="." unique_id=1364204128 instance=ExtResource("1_5hpqs")]
-
-[node name="Pipe" parent="." unique_id=319315535 instance=ExtResource("2_nn86p")]
+script = ExtResource("1_uj218")
