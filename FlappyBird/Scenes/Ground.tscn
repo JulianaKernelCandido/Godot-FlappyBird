@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://e02eqm7croop"]
+
+[ext_resource type="Texture2D" uid="uid://fr16dvjdu6x0" path="res://Assets/ground.png" id="1_rxw4n"]
+[ext_resource type="Script" uid="uid://cm6p4vdusl8qh" path="res://Scripts/ground.gd" id="1_s7q8l"]
+
+[node name="Ground" type="Node2D" unique_id=1056390592]
+script = ExtResource("1_s7q8l")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=883093169]
+repeat_size = Vector2(120, 0)
+autoscroll = Vector2(121, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=734868860]
+texture = ExtResource("1_rxw4n")
+centered = false
+offset = Vector2(0, 200)

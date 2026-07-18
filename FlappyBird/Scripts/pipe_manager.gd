@@ -11,7 +11,7 @@ var room_instance = null
 func generate_pipe(minimun_space_between, displacement_value):
 
 	# Generating an random integer value for space between pipe and its displacement 
-	var space_between = randi_range(minimun_space_between, 50)
+	var space_between = randi_range(minimun_space_between, 35)
 	var displacement = randi_range(-displacement_value, displacement_value)
 
 	# Default Pipe Instance
@@ -43,5 +43,5 @@ func _process(_delta):
 	time_to_pipe -= 1
 
 	if(time_to_pipe <= 0):
-		generate_pipe(20, 40)
+		generate_pipe(20, 30)
 		time_to_pipe = 60

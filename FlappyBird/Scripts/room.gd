@@ -2,6 +2,7 @@ extends Node2D
 
 var global_velocity = 1
 var player = null
+var ground_scene = preload("res://Scenes/Ground.tscn")
 var player_scene = preload("res://Scenes/Player.tscn")
 var pipe_manager_scene = preload("res://Scenes/PipeManager.tscn")
 
@@ -23,6 +24,13 @@ func _ready():
 
 	# Getting my player instance on a global scope variable
 	player = player_instance
+
+
+	# Ground instance - - - - - - - - - - - - - - - - - - - -
+	var ground_instance = ground_scene.instantiate()
+	add_child(ground_instance)
+
+	ground_instance.room_instance = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
