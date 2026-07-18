@@ -4,18 +4,21 @@ var viewport_width = ProjectSettings.get_setting("display/window/size/viewport_w
 var viewport_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 var pipe_scene = preload("res://Scenes/Pipe.tscn")
 var time_to_pipe = 0
+var room_instance = null
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-func generate_pipe():
+func generate_pipe(minimun_space_between, displacement_value):
+
 	# Generating an random integer value for space between pipe and its displacement 
-	var space_between = randi_range(0, 50)
-	var displacement = randi_range(-50, 50)
+	var space_between = randi_range(minimun_space_between, 50)
+	var displacement = randi_range(-displacement_value, displacement_value)
 
 	# Default Pipe Instance
 	var pipe_instance = pipe_scene.instantiate()
 	pipe_instance.space += space_between
 	pipe_instance.displacement = displacement
+	pipe_instance.room_instance = room_instance
 	add_child(pipe_instance)
 
 	# Inverted Pipe Instance
@@ -23,7 +26,9 @@ func generate_pipe():
 	pipe_instance_inverted.inverted = true
 	pipe_instance_inverted.displacement = displacement
 	pipe_instance_inverted.space += space_between
+	pipe_instance_inverted.room_instance = room_instance
 	add_child(pipe_instance_inverted)	
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -38,5 +43,5 @@ func _process(_delta):
 	time_to_pipe -= 1
 
 	if(time_to_pipe <= 0):
-		generate_pipe()
+		generate_pipe(20, 40)
 		time_to_pipe = 60

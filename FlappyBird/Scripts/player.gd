@@ -18,6 +18,9 @@ func _ready():
 	pos.x = viewport_width 	* 0.5
 	pos.y = viewport_height * 0.2
 
+	position = pos
+
+
 	# Getting my node and animating it
 	player_sprite = get_node("AnimatedSprite2D")
 	player_sprite.play("fly")
@@ -26,7 +29,7 @@ func _ready():
 
 func _process(_delta):
 
-	#Player Logic - - - - - - - - - - - - - 
+	#Player Logic - - - - - - -  - - - - - - 
 
 	vertical_velocity += gravity
 	pos.y += vertical_velocity

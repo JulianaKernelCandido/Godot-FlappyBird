@@ -10,6 +10,7 @@ var displacement = 0
 var horizontal_velocity = 1.8
 var viewport_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var viewport_height = ProjectSettings.get_setting("display/window/size/viewport_height")
+var room_instance = null
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -37,5 +38,5 @@ func _ready():
 
 func _process(_delta):
 
-	pos.x -= horizontal_velocity
+	pos.x -= (room_instance.global_velocity * 2)
 	position = pos
